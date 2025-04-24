@@ -26,7 +26,7 @@ const Add = ({url}) => {
         formData.append('price',Number(data.price))
         formData.append('description',data.description)
         formData.append('category',data.category)
-        formData.append('image',image)
+        formData.append('image',image[0])
         const response = await  axios.post(`${url}/api/food/addfood`,formData,)
         if(response.status === 201){
             setData({
