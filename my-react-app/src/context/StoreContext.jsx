@@ -6,7 +6,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({})
     const[token,setToken] = useState('')
-    const url = import.meta.env.BACKEND_URL||'http://localhost:3000'
+    const url = 'https://polarise-back-end.vercel.app'
     const [food_list, setFoodList] = useState([])
 
     const addToCart = async(itemId) => {
