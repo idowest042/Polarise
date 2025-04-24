@@ -4,9 +4,7 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export const placeOrder = async (req, res) => {
    // orderController.js
-const frontend_url = process.env.NODE_ENV === 'production'
-? process.env.FRONTEND_URL  // ← You define this
-: 'http://localhost:5173';             // ← Default dev URL
+const frontend_url = "https://polarise-iota.vercel.app"             // ← Default dev URL
 try {
     const newOrder = new orderModel({
         userId: req.userId,

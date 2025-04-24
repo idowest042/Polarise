@@ -1,40 +1,80 @@
 .header {
-    height: 34vw;
-    margin: 30px auto;
+    height: 50vh;
+    min-height: 250px;
+    max-height: 350px;
+    margin: 15px auto;
     background: url('/star.jpg') no-repeat center center;
     background-size: cover;
     position: relative;
+    border-radius: 8px;
   }
   
-.header-contents{
+  .header-contents {
     position: absolute;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: start;
-    gap:1.5vw;
-    max-width: 50%;
-    bottom: 10%;
-    left:6vw;
-    animation: fadein 4s ease-in-out;
-}
-@media (max-width:1050px){
-.header-contents{
-    max-width: 45%;
-}
-}
-@media (max-width:750px){
-    .header-contents{
-        max-width: 65%;
+    gap: 0.8rem;
+    width: 90%;
+    bottom: 15%;
+    left: 5%;
+    animation: fadein 1.5s ease-in-out;
+  }
+  
+  .header-contents h2 {
+    color: white;
+    font-size: clamp(20px, 5vw, 32px);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  }
+  
+  .header-contents p {
+    color: #ff6b6b;
+    font-weight: bold;
+    font-size: clamp(13px, 2.5vw, 16px);
+    line-height: 1.3;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  .header-contents button {
+    background: white;
+    color: #747474;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(13px, 2.5vw, 15px);
+    margin-top: 0.5rem;
+    transition: all 0.2s ease;
+  }
+  
+  .header-contents button:hover {
+    background: #ff6b6b;
+    color: white;
+  }
+  
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .header {
+      height: 40vh;
+      min-height: 250px;
+      max-height: 350px;
     }
-    .header-contents p{
-        display:none
+    
+    .header-contents {
+      text-align: center;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .header-contents button{
-        padding:2vw 4vw;
+    
+    .header-contents p {
+      color: white;
     }
-    }
-    @media (max-width:900px) {
-        .header-contents p{
-            display:none
-        }
-    }
+  }
