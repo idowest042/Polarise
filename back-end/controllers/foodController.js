@@ -8,10 +8,16 @@ export const addFood = async (req, res) => {
             return res.status(400).json({ message: "No image file provided" });
         }
 
-        // 2. Upload the image to Cloudinary
-        const uploadResponse = await cloudinary.uploader.upload(req.file.path);
+        // 2. Convert buffer to base64 string for Cloudinary
+        const b64 = Buffer.from(req.file.buffer).toString("base64");
+        let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+
+        // 3. Upload to Cloudinary using the base64 string
+        const uploadResponse = await cloudinary.uploader.upload(dataURI, {
+            folder: "food-items" // optional folder organization
+        });
         
-        // 3. Create the food item with the Cloudinary URL
+        // 4. Create the food item with the Cloudinary URL
         const food = new foodModel({
             name: req.body.name,
             description: req.body.description,
@@ -20,15 +26,16 @@ export const addFood = async (req, res) => {
             category: req.body.category
         });
 
-        // 4. Save to database
+        // 5. Save to database
         await food.save();
+        
         res.status(201).json({ 
             message: "Food added successfully",
             data: food 
         });
         
     } catch (error) {
-        console.error('Error in addFood controller:', error.message);
+        console.error('Error in addFood controller:', error);
         res.status(500).json({ 
             message: "Internal server error",
             error: error.message 
