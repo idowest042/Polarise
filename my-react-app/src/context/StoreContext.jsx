@@ -6,7 +6,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({})
     const[token,setToken] = useState('')
-    const url = 'http://localhost:3000'
+    const url = import.meta.env.BACKEND_URL||'http://localhost:3000'
     const [food_list, setFoodList] = useState([])
 
     const addToCart = async(itemId) => {
