@@ -1,0 +1,17 @@
+.place-order-left input{
+margin-bottom: 15px;
+width: 100%;
+padding:10px;
+border-radius: 5px;
+border: 1px solid #c5c5c5;
+outline-color: tomato;
+}
+.place-order-left .multi-fields{
+display: flex;
+gap:10px;
+}
+.place-order-right .multi-fields{
+    width: 100%;
+    max-width:max(40%,500px);
+    
+}

@@ -1,0 +1,21 @@
+.cart-items-title{
+    display:grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    color:gray;
+    font-size: max(1vw,12px);
+}
+.c{
+    color:black
+}
+.cart-total hr{
+    margin: 10px 0px;
+}
+@media (max-width: 750px){
+    .cart-bottom{
+        flex-direction: column-reverse;;
+    }
+    .cart-promocode{
+        justify-content: start;
+    }
+}
