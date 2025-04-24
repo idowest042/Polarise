@@ -8,7 +8,7 @@ import Order from './pages/Order'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
-  const url = 'http://localhost:3000'
+  const url = 'https://polarise-back-end.vercel.app'
   return (
     <div>
       <ToastContainer/>
