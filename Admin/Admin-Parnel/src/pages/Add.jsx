@@ -40,10 +40,11 @@ const Add = ({url}) => {
         }
         else{
             toast.error('Something went wrong')
+            console.log(error.response.data.message)
         }
     }
     catch(error){
-        console.log(error)
+        console.log(error.response.data.message)
         toast.error(error.response.data.message)
     }finally{
         isLoading(false)
