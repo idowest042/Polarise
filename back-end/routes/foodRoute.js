@@ -7,7 +7,7 @@ const foodRouter = express.Router();
 // Use memory storage instead of disk storage
 const upload = multer({ storage: multer.memoryStorage() });
 
-foodRouter.post('/addfood', upload.single('image'), addFood);
+foodRouter.post('/addfood', addFood);
 foodRouter.get('/list', listFood);
 foodRouter.post('/remove', removeFood);
 
